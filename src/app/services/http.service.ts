@@ -17,4 +17,11 @@ export class HttpService {
       })
     );
   }
+  
+  createContact(newContact: IContact){
+    return this.httpClient.post<IContact>(
+      'https://localhost:44379/Contact',
+      newContact
+    )
+  }
 }
