@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpService } from '../../services/http.service';
+import {IContact} from '../../Interfaces/contacts.interface'
+import { Observable } from 'rxjs';
 
 export interface PeriodicElement {
   name: string;
@@ -25,9 +28,24 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrl: './contact-list.component.scss',
 })
 
-export class ContactListComponent {
+export class ContactListComponent implements OnInit {
+  contact!: IContact[];
+
+  dataSource = new MatTableDataSource<IContact>();
   displayedColumns: string[] = ['position', 'name', 'phone', 'mail'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  constructor(private httpService: HttpService) {}
+
+  getAll(): Observable<IContact[]>{
+    return this.httpService.getAll()
+  } 
+
+  ngOnInit(): void {
+    this.getAll().subscribe((contacts) => {
+      this.dataSource.data = contacts;
+      this.contact = contacts;
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
