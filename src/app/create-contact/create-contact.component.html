@@ -1,0 +1,45 @@
+<form class="form" action="#" >
+  <h1 class="titulo-form">Formulário de Contato</h1>
+
+  <div class="input-group">
+    <input
+      type="text"
+      name="name"
+      class="input"
+      [(ngModel)]="contact.name"
+      autocomplete="off"
+      required
+    />
+    <label class="user-label">Nome</label>
+  </div>
+
+  <div class="input-group">
+    <input
+      type="email"
+      name="mail"
+      class="input"
+      [(ngModel)]="contact.mail"
+      autocomplete="off"
+      required
+    />
+    <label class="user-label">E-mail</label>
+  </div>
+
+  <div class="input-group">
+    <input
+      type="text"
+      name="phone"
+      class="input"
+      [(ngModel)]="contact.phone"
+      autocomplete="off"
+      required
+    />
+    <label class="user-label">Telefone</label>
+  </div>
+
+  <button class="btn-gradient" type="button" (click)="createContact()">Criar contato</button>
+</form>
+
+<div class="divButton">
+  <a class="buttonReturnContacts" href="/contacts">Lista de Contatos</a>
+</div>

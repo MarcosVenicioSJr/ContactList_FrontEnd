@@ -8,12 +8,18 @@ table {
   width: 100%;
 }
 
-.divButton {
-  display: flex;
-  align-items: center;
+.newContactButton {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
 }
 
-.newContactButton {
-  font-size: 12px;
-  padding: 14px 40px;
+.newContactButton:hover {
+  background-color: #0056b3;
 }
