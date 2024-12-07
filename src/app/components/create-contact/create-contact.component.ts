@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Import necessário para [(ngModel)]
-import { IContact } from '../Interfaces/contacts.interface';
-import { HttpService } from '../services/http.service';
+import { IContact } from '../../Interfaces/contacts.interface';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-create-contact',

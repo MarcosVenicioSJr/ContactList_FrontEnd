@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
-import { CreateContactComponent } from './create-contact/create-contact.component';
+import { CreateContactComponent } from './components/create-contact/create-contact.component';
 
 export const routes: Routes = [
   {
